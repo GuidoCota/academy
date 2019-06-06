@@ -36,8 +36,7 @@ public class LoginService {
 				.setId(UUID.randomUUID().toString()) //
 				.setIssuedAt(new Date()) //
 				.setIssuer("ikubinfo") //
-				.signWith(SignatureAlgorithm.HS256, Constants.JWT_KEY)
-				.compact();
+				.signWith(SignatureAlgorithm.HS256, Constants.JWT_KEY).compact();
 
 		LoginResponse response = new LoginResponse();
 		response.setJwt(token);

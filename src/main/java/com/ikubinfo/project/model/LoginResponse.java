@@ -22,5 +22,4 @@ public class LoginResponse {
 		this.user = user;
 	}
 
-
 }

@@ -11,9 +11,9 @@ public class SomethingService {
 
 	public SomethingService() {
 		somethingRepository = new SomethingRepository();
-		somethingConverter= new SomethingConverter();
+		somethingConverter = new SomethingConverter();
 	}
-	
+
 	public SomethingModel getSomething(int id) {
 		return somethingConverter.toModel(somethingRepository.getSomething(id));
 	}

@@ -4,22 +4,22 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public enum PersistenceSingleton {
-    INSTANCE;
+	INSTANCE;
 
-    private EntityManagerFactory entityManagerFactory;
+	private EntityManagerFactory entityManagerFactory;
 
-    private EntityManagerFactory setupEntityManagerFactory() {
-        return Persistence.createEntityManagerFactory( "akademia" );
-    }
+	private EntityManagerFactory setupEntityManagerFactory() {
+		return Persistence.createEntityManagerFactory("akademia");
+	}
 
-    public EntityManagerFactory getEntityManagerFactory() {
-        if (entityManagerFactory == null){
-            entityManagerFactory = setupEntityManagerFactory();
-        }
-        return entityManagerFactory;
-    }
+	public EntityManagerFactory getEntityManagerFactory() {
+		if (entityManagerFactory == null) {
+			entityManagerFactory = setupEntityManagerFactory();
+		}
+		return entityManagerFactory;
+	}
 
-    public void destroy() {
-        entityManagerFactory.close();
-    }
+	public void destroy() {
+		entityManagerFactory.close();
+	}
 }

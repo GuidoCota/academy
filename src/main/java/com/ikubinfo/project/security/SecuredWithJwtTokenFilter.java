@@ -23,7 +23,8 @@ public class SecuredWithJwtTokenFilter implements ContainerRequestFilter {
 		// Get the HTTP Authorization header from the request
 		String authorizationHeader = requestContext.getHeaderString(HttpHeaders.AUTHORIZATION);
 
-		if (authorizationHeader == null || authorizationHeader.isEmpty() || !authorizationHeader.contains(Constants.BEARER)) {
+		if (authorizationHeader == null || authorizationHeader.isEmpty()
+				|| !authorizationHeader.contains(Constants.BEARER)) {
 			requestContext.abortWith(
 					Response.status(Response.Status.FORBIDDEN).entity("Missing Authorization header").build());
 			return;
@@ -43,8 +44,7 @@ public class SecuredWithJwtTokenFilter implements ContainerRequestFilter {
 					Response.status(Response.Status.FORBIDDEN).entity("JWT was not correctly constructed").build());
 			return;
 		} catch (SignatureException e) {
-			requestContext.abortWith(
-					Response.status(Response.Status.FORBIDDEN).entity("Modified JWT").build());
+			requestContext.abortWith(Response.status(Response.Status.FORBIDDEN).entity("Modified JWT").build());
 			return;
 		}
 
