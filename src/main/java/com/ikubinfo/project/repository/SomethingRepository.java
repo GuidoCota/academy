@@ -12,7 +12,7 @@ public class SomethingRepository {
 
 	public SomethingRepository() {
 
-		this.entityManager = PersistenceSingleton.instance.getEntityManagerFactory().createEntityManager();
+		this.entityManager = PersistenceSingleton.INSTANCE.getEntityManagerFactory().createEntityManager();
 	}
 
 

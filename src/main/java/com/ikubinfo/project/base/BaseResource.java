@@ -25,7 +25,7 @@ public abstract class BaseResource {
 	}
 
 	public String getRoleFromToken() {
-		String token = httpHeaders.getHeaderString(HttpHeaders.AUTHORIZATION).substring(Constants.Bearer.length())
+		String token = httpHeaders.getHeaderString(HttpHeaders.AUTHORIZATION).substring(Constants.BEARER.length())
 				.trim();
 
 		return (String) Jwts.parser().setSigningKey(Constants.JWT_KEY).parseClaimsJws(token).getBody().get("role");

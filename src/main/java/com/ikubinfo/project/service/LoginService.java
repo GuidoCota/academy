@@ -22,7 +22,7 @@ public class LoginService {
 
 	public LoginResponse login(LoginRequest request) {
 
-		// call to UserRepository getting the user
+		// TODO call to UserRepository getting the user
 		// not copy paste this;
 		User loggedInUser = users.stream().filter(user -> user.getUsername().equals(request.getUsername())).findFirst()
 				.get();
@@ -37,7 +37,6 @@ public class LoginService {
 				.setIssuedAt(new Date()) //
 				.setIssuer("ikubinfo") //
 				.signWith(SignatureAlgorithm.HS256, Constants.JWT_KEY)
-
 				.compact();
 
 		LoginResponse response = new LoginResponse();

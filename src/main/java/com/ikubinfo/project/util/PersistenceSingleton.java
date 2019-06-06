@@ -4,7 +4,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public enum PersistenceSingleton {
-    instance;
+    INSTANCE;
 
     private EntityManagerFactory entityManagerFactory;
 

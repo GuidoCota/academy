@@ -23,13 +23,13 @@ public class SecuredWithJwtTokenFilter implements ContainerRequestFilter {
 		// Get the HTTP Authorization header from the request
 		String authorizationHeader = requestContext.getHeaderString(HttpHeaders.AUTHORIZATION);
 
-		if (authorizationHeader == null || authorizationHeader.isEmpty() || !authorizationHeader.contains(Constants.Bearer)) {
+		if (authorizationHeader == null || authorizationHeader.isEmpty() || !authorizationHeader.contains(Constants.BEARER)) {
 			requestContext.abortWith(
 					Response.status(Response.Status.FORBIDDEN).entity("Missing Authorization header").build());
 			return;
 		}
 		// Extract the token from the HTTP Authorization header
-		String token = authorizationHeader.substring(Constants.Bearer.length()).trim();
+		String token = authorizationHeader.substring(Constants.BEARER.length()).trim();
 
 		// Validate the token
 		try {
